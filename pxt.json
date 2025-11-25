@@ -2,7 +2,9 @@
     "name": "Demo",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "color-coded-tilemap": "*"
     },
     "files": [
         "main.blocks",
