@@ -7,11 +7,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.objeto_colision, function (sprit
         sumdor = id_escenario + 6
         crear_escenario(sumdor)
     } else if (encontrar_posicion_x < 120) {
-        if (true) {
-        	
-        } else {
-        	
-        }
+    	
     }
 })
 function movimiento_jugador (booleano: boolean) {
