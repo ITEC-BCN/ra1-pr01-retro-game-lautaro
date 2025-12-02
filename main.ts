@@ -10,6 +10,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.objeto_colision, function (sprit
     }
     sprites.destroyAllSpritesOfKind(SpriteKind.objeto_colision)
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite2, otherSprite2) {
+    info.changeLifeBy(-1)
+})
 function enemigo2 (booleano: boolean) {
     enemigo = sprites.create(img`
         .....................................................................
@@ -127,7 +130,7 @@ function enemigo2 (booleano: boolean) {
     enemigo.setVelocity(10, 10)
     escenario_enemigo(true)
 }
-function movimiento_jugador (booleano: boolean) {
+function movimiento_jugador (booleano2: boolean) {
     main_character = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -148,10 +151,7 @@ function movimiento_jugador (booleano: boolean) {
         `, SpriteKind.Player)
     controller.moveSprite(main_character, 100, 100)
 }
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-})
-function escenario_enemigo (booleano: boolean) {
+function escenario_enemigo (booleano3: boolean) {
     scene.setBackgroundImage(img`
         ...............................................................................................................................................................
         ...............................................................................................................................................................
@@ -283,7 +283,7 @@ function escenario_enemigo (booleano: boolean) {
         ...............................................................................................................................................................
         `)
 }
-function crear_escenario (id: number) {
+function crear_escenario (id2: number) {
     lista_escenario = [
     img`
         111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -5014,10 +5014,10 @@ function crear_escenario (id: number) {
     0,
     0
     ]
-    encontrar_indice = lista_escenario[id]
-    encontrar_posicion_x = lista_posicion_x[id]
-    enconctrar_posicion_y = lista_posicion_y[id]
-    id_escenario = lista_id_escenario[id]
+    encontrar_indice = lista_escenario[id2]
+    encontrar_posicion_x = lista_posicion_x[id2]
+    enconctrar_posicion_y = lista_posicion_y[id2]
+    id_escenario = lista_id_escenario[id2]
     if (id_escenario / 1 != 0) {
         portal = sprites.create(assets.image`miImagen`, SpriteKind.objeto_colision)
         portal2 = sprites.create(assets.image`miImagen`, SpriteKind.objeto_colision)
