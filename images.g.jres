@@ -1,4 +1,9 @@
 {
+    "image1": {
+        "data": "hwQQABAAAAC73d27u7vd3bvd3bu7u93du7u7u7u7u927u7u7u7u73bvd3bu7u7u7u93du7u73d273d27u7vd3bvd3bu7u7u7u93du7u7u7u73d27u7u7u7vd3bu73d3du7u7u7vdu7u7u7u7u927u7vd3bu73d3du93du7vd3d27u7u7u7u7uw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "miImagen"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
