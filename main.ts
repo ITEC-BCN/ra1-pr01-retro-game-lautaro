@@ -122,7 +122,9 @@ function enemigo2 (booleano: boolean) {
         .....................................................................
         .........c...........................................................
         .....................................................................
-        `, SpriteKind.Player)
+        `, SpriteKind.Enemy)
+    enemigo.follow(main_character)
+    enemigo.setVelocity(10, 10)
     escenario_enemigo(true)
 }
 function movimiento_jugador (booleano: boolean) {
@@ -146,6 +148,9 @@ function movimiento_jugador (booleano: boolean) {
         `, SpriteKind.Player)
     controller.moveSprite(main_character, 100, 100)
 }
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+})
 function escenario_enemigo (booleano: boolean) {
     scene.setBackgroundImage(img`
         ...............................................................................................................................................................
