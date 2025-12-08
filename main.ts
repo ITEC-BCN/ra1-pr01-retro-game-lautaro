@@ -15,9 +15,12 @@ sprites.onOverlap(SpriteKind.manoSeleccion, SpriteKind.colisionBoton, function (
         escenario2(true)
     }
     if (controller.A.isPressed() && otherSprite == botonseleccionjuego3) {
-        menuseleccionpartida(true)
+        escenario3(true)
     }
 })
+function escenario3 (booleano: boolean) {
+	
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (estadoJuego == "JUEGO") {
         if (main.isHittingTile(CollisionDirection.Bottom)) {
@@ -385,7 +388,7 @@ function animacionpersonaje (booleano: boolean) {
     characterAnimations.rule(Predicate.MovingLeft)
     )
     characterAnimations.loopFrames(
-    null,
+    main,
     [img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -465,6 +468,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles10, function (
 })
 function destruirescenario (booleano: boolean) {
     music.stopAllSounds()
+    tiles.setCurrentTilemap(tilemap`nivel3`)
     scene.setBackgroundImage(img`
         ................................................................................................................................................................
         ................................................................................................................................................................
@@ -865,8 +869,7 @@ function menuseleccionpartida (booleano: boolean) {
         888888888868888888888888888888888888888888888ccfe4cff44ff44fc4efee4efe4ef44ff44fc4444efe4efe4efe4fff44fc4efe4eefe7ec88888888888888888888888888888888888886888888
         `)
 }
-function movimientojugador (booleano: boolean) {
-    estadoJuego = "JUEGO"
+function movimientojugador () {
     main = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -886,6 +889,8 @@ function movimientojugador (booleano: boolean) {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     controller.moveSprite(main, 100, 0)
+    scene.cameraFollowSprite(main)
+    main.ay = 300
     info.setLife(3)
     animacionpersonaje(true)
 }
@@ -893,8 +898,9 @@ function escenario2 (booleano: boolean) {
 	
 }
 function escenario1 (booleano: boolean) {
-    escenarioactivo = "ESCENARIO1"
     destruirescenario(true)
+    estadoJuego = "JUEGO"
+    escenarioactivo = "ESCENARIO1"
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -1017,11 +1023,9 @@ function escenario1 (booleano: boolean) {
         4ddddddd4d444dd4dd4ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd4ddddddddddddddddddddddddddddddd4ddddddddddddddddddddddddddddd4ddddddddd
         dddddddddd444ddddd3ddddddddddddd4ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd44dddddddddddddddddddddddddddddddddd4ddddddddd
         `)
-    movimientojugador(true)
+    movimientojugador()
     tiles.setCurrentTilemap(tilemap`nivel1`)
     tiles.placeOnTile(main, tiles.getTileLocation(0, 10))
-    scene.cameraFollowSprite(main)
-    main.ay = 300
 }
 function generarenemigos () {
     piedra = sprites.create(img`
