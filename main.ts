@@ -12,35 +12,39 @@ sprites.onOverlap(SpriteKind.manoSeleccion, SpriteKind.colisionBoton, function (
         escenario1(true)
     }
     if (controller.A.isPressed() && otherSprite == botonseleccionjuego2) {
-    	
+        escenario2(true)
     }
     if (controller.A.isPressed() && otherSprite == botonseleccionjuego3) {
         menuseleccionpartida(true)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . 3 1 1 3 . . . . . . 
-        . . . . . 2 1 1 1 1 2 . . . . . 
-        . . . . . 2 1 1 1 1 2 . . . . . 
-        . . . . . . 3 1 1 3 . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, main, 200, 0)
+    if (estadoJuego == "JUEGO") {
+        if (main.isHittingTile(CollisionDirection.Bottom)) {
+            main.vy = -150
+        }
+    }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (main.isHittingTile(CollisionDirection.Bottom)) {
-        main.vy = -150
+    if (estadoJuego == "JUEGO") {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . 2 1 1 1 1 2 . . . . . 
+            . . . . . . 3 1 1 3 . . . . . . 
+            . . . . . . . 2 2 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, main, 200, 0)
     }
 })
 function crear_menu_inicial (booleano: boolean) {
@@ -381,7 +385,7 @@ function animacionpersonaje (booleano: boolean) {
     characterAnimations.rule(Predicate.MovingLeft)
     )
     characterAnimations.loopFrames(
-    main,
+    null,
     [img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -862,6 +866,7 @@ function menuseleccionpartida (booleano: boolean) {
         `)
 }
 function movimientojugador (booleano: boolean) {
+    estadoJuego = "JUEGO"
     main = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -881,12 +886,14 @@ function movimientojugador (booleano: boolean) {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     controller.moveSprite(main, 100, 0)
-    vidas = 3
-    info.setLife(vidas)
+    info.setLife(3)
     animacionpersonaje(true)
 }
+function escenario2 (booleano: boolean) {
+	
+}
 function escenario1 (booleano: boolean) {
-    saltar = saltar + 0.1
+    escenarioactivo = "ESCENARIO1"
     destruirescenario(true)
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999966666699969999999999999999999999999999999999999999999999999999
@@ -1016,29 +1023,7 @@ function escenario1 (booleano: boolean) {
     scene.cameraFollowSprite(main)
     main.ay = 300
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
-    game.gameOver(true)
-})
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(piedra)
-    info.changeScoreBy(1)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(piedra)
-    info.changeLifeBy(-1)
-})
-let piedra: Sprite = null
-let saltar = 0
-let vidas = 0
-let mano_seleccion: Sprite = null
-let main: Sprite = null
-let projectile: Sprite = null
-let botonseleccionjuego3: Sprite = null
-let botonseleccionjuego2: Sprite = null
-let botonseleccionjuego: Sprite = null
-let botonbannerinicio: Sprite = null
-crear_menu_inicial(true)
-game.onUpdateInterval(2000, function () {
+function generarenemigos () {
     piedra = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -1059,4 +1044,31 @@ game.onUpdateInterval(2000, function () {
         `, SpriteKind.Enemy)
     piedra.setVelocity(50, 100)
     piedra.setPosition(50, randint(30, 50))
+}
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
+    game.gameOver(true)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(piedra)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(piedra)
+    info.changeLifeBy(-1)
+})
+let piedra: Sprite = null
+let escenarioactivo = ""
+let mano_seleccion: Sprite = null
+let projectile: Sprite = null
+let main: Sprite = null
+let estadoJuego = ""
+let botonseleccionjuego3: Sprite = null
+let botonseleccionjuego2: Sprite = null
+let botonseleccionjuego: Sprite = null
+let botonbannerinicio: Sprite = null
+crear_menu_inicial(true)
+game.onUpdateInterval(2000, function () {
+    if (escenarioactivo == "ESCENARIO1") {
+        generarenemigos()
+    }
 })
