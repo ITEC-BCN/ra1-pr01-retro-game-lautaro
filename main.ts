@@ -8,9 +8,6 @@ sprites.onOverlap(SpriteKind.manoSeleccion, SpriteKind.colisionBoton, function (
     if (controller.A.isPressed() && otherSprite == botonbannerinicio) {
         menuseleccionpartida(true)
     }
-    if (controller.A.isPressed() && otherSprite == botonseleccionjuego) {
-        escenario1(true)
-    }
     if (controller.A.isPressed() && otherSprite == botonseleccionjuego2) {
     	
     }
@@ -210,136 +207,6 @@ function destruirescenario (booleano: boolean) {
     sprites.destroyAllSpritesOfKind(SpriteKind.manoSeleccion)
     sprites.destroyAllSpritesOfKind(SpriteKind.colisionBoton)
     music.stopAllSounds()
-}
-function animacionjugador (booleano: boolean) {
-	
-}
-function escenario1 (booleano: boolean) {
-    destruirescenario(true)
-    scene.setBackgroundImage(img`
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        fffffffc666666fffff66fffffffffffffffffffffff8bbbbbbbcfffffffffffff8fffffffffffff8bbbbbb96ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffc666666fffffffffffffffffffffffffffffc1999696666fffffffffffcf8fffffffffffc1999696666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffffffff66666ffffffffffffffffffffffffffffffb99666666668ffffffffff8f8fffffffffffb99666666668ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffffffffffffffffffffffffffffffffffffffb6666666666ffffffffffffcffffffffffffb6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffff8bbbbbb96ffffffffffffffffffffffffffffffc6666666666ffffffffffff8ffffffffffffc6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc1999696666fffffffffffffffffffffffffffffc6666666666fffffffffffcf8fffffffffffc6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffb99666666668fffffffffffffffffffffffffffff666666666ffffffffffff8f8ffffffffffff666666666ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffb6666666666ffffffffffffffffffffffffffffffffffffffffffffffffffffcffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        6ffc6666666666fffff66ff666666fffffffffffffff8bbbcffffff666666fffff8fffffffffffffffff8bb96ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc6666666666fffffffff6fffffffffffffffffffc199666fffff6fffffffffcf8fffffffffffffffc199666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffff666666666ffffffffff6fffffffffffffffffffb9966668ffff6fffffffff8f8fffffffffffffffb9966668ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffffffffffffffffffffffffffffffffffffffb666666ffffffffffffffffcffffffffffffffffb666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        66666fff8bb96ffffffffff66ff666666ffffffffffc666666ffffffffffffffffcffffffffffffffffc666666fffffffff66ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffc199666fffffffffffff6fffffffffffffffc666666fffffffffffffff8ff88fffffffffffffc666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffb9966668ffffffffffff6ffffffffffffffff66666ffffffffffffffffcc9111cffffffffffff66666ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffb666666ffffffffffffffffffffffffffffffffffffffffffffffffffff691119fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        6ffffffc666666fffff66fffffffffffffffffffffff8bbbbbbbcfffffffffff8f9b91196fffffff8bbbbbb96ffffffffff6666ffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffc666666fffffffffffffffffffffffffffffc1999696666ffffffffff9ccf99968ffffffc1999696666fffffffff6fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffffffff66666ffffffffffffffffffffffffffffffb99666666668ffffffff8969b6f66fffffffb99666666668ffffffff6fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffffffffffffffffffffffffffffffffffffffb6666666666fffffffff89cb66868fffffffb6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffff8bbbbbb96ffffffffffffffffffffffffffffffc6666666666fffffffff89cc96ffffffffffc6666666666fffffffff66ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc1999696666fffffffffffffffffffffffffffffc6666666666ffffffffff68bffffffffffffc6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffb99666666668fffffffffffffffffffffffffffff666666666fffffffffff8f88ffffffffffff666666666ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffb6666666666fffffffffffffffffffffffffffffffffffffffffffffffff96ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc6666666666fffff66fffffffffffffffffffffff8bbbcfffffffffffff8bcffffff666666fffffff8bb96ffffffffff6666ffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc6666666666fffffffffffffffffffffffffffffc199666fffffffffffffccffffff6fffffffffffc199666fffffffff6fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffff666666666ffffffffffffffffffffffffffffffb9966668fffffffffff66fffffff6fffffffffffb9966668ffffffff6fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffffffffffffffffffffffffffffffffffffffb666666ffffffffffffbffffffffffffffffffffb666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffffffff8bb96ffffffffffffffffffffffffffffffc666666fffffffffff8ccfffffffffff666666ffc666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffc199666fffffffffffffffffffffffffffffc666666fffffffffff61cfffffffffff6fffffffc666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffb9966668fffffffffffffffffffffffffffff66666ffffffffffffffffffffffffff6ffffffff66666ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffffffb666666fffffffffffffffffffffffffffffffffffffffffffffff89cfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        ffffff8cbbbbcbc888fffffffffffff666666fffffff8bbbbbbbcfffffffffffffffffffffffffff8bbbbbb96ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fff8b91919999999968ffffffffffff6fffffffffffc1999696666fffffffc98fffffffffffffffc1999696666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffb969b9ffffffffa8ffffffffffff6fffffffffffb99666666668ffffffffffffffffffffffffb99666666668ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fffc66969ffffffffa8ffffffffffffffffffffffffb6666666666ffffffffb9fffffffffffffffb6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        6ffc66969ffffffffa8ffffffff666666ffffffffffc6666666666ffffffffc8fffffffffffffffc6666666666fffffffff66ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fff866689ffffffffa8ffffffff6fffffffffffffffc6666666666fffffffffffffffffffffffffc6666666666fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fff866686aaaaaaaa68ffffffff6ffffffffffffffff666666666fffffffffffffffffffffffffff666666666ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        fff8666866666666668ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.
-        666866686666666666866fffffffffffffffffffffff8bbbcfffffffffffffffffffffffffffffffffff8bb96ffffffffffffffffffffffffffffffffffffffffffff8ccbbbbbbbbbbbc8ffffffffff.
-        fff8666866666666668ffffffffffffffffffffffffc199666fffffffffffffffffffffffffffffffffc199666ffffffffffffffffffffffffffffffffffffffffffff66668888888888fffffffffff.
-        fff866686666666666cffffffffffffffffffffffffb9966668ffffffffffffffffffffffffffffffffb9966668fffffffffffffffffffffffffffffffffffffffffff8c888888888888fffffffffff.
-        fff866686666666666cffffffffffffffffffffffffb666666fffffffffffffffffffffffffffffffffb666666fffffffffffffffffffffffffffffffffffffffffff6d88888888888888ffffffffff.
-        fff8666c6666666666cffffffffffff666666ffffffc666666f666666ffffffffffffffffffffffffffc666666ffffffffffffffffffffffffffffffffffffffffff818888888888888888fffffffff.
-        ffff666fa66666666afffffffffffff6fffffffffffc666666f6fffffffffffffffffffffffffffffffc666666ffffffffffffffffffffffffffffffffffffffffffbb8888888888888888fffffffff.
-        ffff888faaaaaaaaaafffffffffffff6ffffffffffff66666ff6ffffffffffffffffffffffffffffffff66666fffffffffffffffffffffffffffffffffffffffffffc88888888888888886fffffffff.
-        ffffffffffffcccfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbc88888888888888b8fffffffff.
-        ffffffffe2ffffffffffffffffffffffffffffffffff8bbbbbbbcfffffffffffffffffffffffffff8bbbbbb96ffffffffffffffffffffffeeeeeeeeeeeeeeeecffff8688888888888886b8ffffc5555.
-        ffffffffeffffffffffffffffffffffffffffffffffc1999696666fffffffffffffffffffffffffc1999696666ffffffffffffffffffffeeeeeeeeeeeeeeeeeecffffc8888888888886b8fffffebbbb.
-        fffffffe52fffffffffffffffffffffffffffffffffb99666666668ffffffffffffffffffffffffb99666666668fffffffffffffffffcfcbbbbbbbbbbbbbbbbeecfffff8888888888c8fffffcee5555.
-        fffffffcecfffbbb8ffffffffffffffffffffffffffb6666666666fffffffffffffffffffffffffb6666666666ffffffffffffffffff4ee5555555555555555544cffffffff8888ffffffffc4455555.
-        fffffffcbb99bb886ffffffffffffffffffffffffffc6666666666fffffffffffffffffffffffffc6666666666fffffffffffff66fff544555555555555555555555555555555555555555555555555.
-        fffffbccbccf866668fffffffffffffffffffffffffc6666666666fffffffffffffffffffffffffc6666666666ffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
-        fffc99996686668bcfffffffffffffffffffffffffff666666666fffffffffffffffffffffffffff666666666fffffffffffffffffff7eec444c444c444c444c444c444c444c444c444c444c444c444.
-        fffb66688686669966ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffcccfcccfcccfcccfcccfcccfcccfcccfcccfcccfcccfccc.
-        6ffc68866686c966f66f8fffffffffffffffffffffff699bcffffffffffffff666666fffffffffffffff8bb96ffffffffffffffffffffffc666666fffffffffffffff8f88f6f68ff666f868ffffffff.
-        fffb68888688966f66899ffffffffffffffffffffff6199666fffffffffffff6fffffffffffffffffffc199666fffffffffffffffffffffc666666fffffffffffffff9986cf666f86ff8f68e2efffff.
-        fffc66666688966f668968cffffffffffffffffffff99966668ffffffffffff6fffffffffffffffffffb9966668fffffffffffffffffffff66666ffffffffffffffc869866f669886666668efe2ffff.
-        fffc688886886968f6f66ffffffffffffffffffffff9666666fffffffffffffffffffffffffffffffffb666666fffffffffffffffffffffffffffffffffffffffffff66f6f869688688886cffe2ffff.
-        fffc6666668686668ffffffffffffffffffffffffff6666666fffffffff666666ffffffffffffffffffc666666fffffffff66fffffffffff8bbbcffffffffffffffffffff8666868666666cfefeeef2.
-        fff86666668668f6f8fffffffffffffffffffffffff6666666fffffffff6fffffffffffffffffffffffc666666fffffffffffffffffffffc199666ffffffffffffffffff8f6f86686666668ffef2fee.
-        fff866666686668888fffffffffffffffffffffffff666666ffffffffff6ffffffffffffffffffffffff66666ffffffffffffffffffffffb9966668fffffffffffffffff888866686666668fff2f2f2.
-        fffc66666686668bcffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffb666666fffffffffffffffffffcb86668666666cffffffff.
-        fff8666666c6661196ffffffffffffffffffffffffff699bbbbbcfffffffffffffffffffffffffff8bbbbbb96ffffffffffffffffffffffc666666ffffffffffffffffff691166686666668ffffffff.
-        fff866666686c996f66f8ffffffffffffffffffffff61999696666fffffffffffffffffffffffffc1999696666fffffffffffffffffffffc666666fffffffffffffff8f66f699c68666666cfffec5cc.
-        fff8666666c8969f69899ffffffffffffffffffffff999666666668ffffffffffffffffffffffffb99666666668fffffffffffffffffffff66666ffffffffffffffff99896f96988666666cffcc5ce5.
-        fffc666666c8966f668988cffffffffffffffffffff96666666666fffffffffffffffffffffffffb6666666666fffffffffffffffffffffffffffffffffffffffffc889866f66988666666cec5eeee5.
-        eeec66666aca69cffffffceeeeeeeeeeeeeeeeeeeee66666666666fffffffffffffffffffffffff66666666666fccccccceeeeeeeeeeeeef8bbbbbbbcffffffffffffffffffc96a86666668f5c5eecc.
-        eeec66666acac6affffeeeeeeeeeeeeeeeeeeeeeeee66666666666fffffffffffffffffffffffff66666666666fccccceeeeeeeeeeeeeeec1999696666fffffffffffffffffa6ca8666666ccfeeffff.
-        bbbca66aaacaaffffffeeeebbbbbbbbbbbbbbbbbbbb6666666666ffffffffffffffffffffffffff6666666666ffcccebbbbbbbbbbbbbbbbb99666666668ffffffffffffffffffaa8666666cee55ffff.
-        555caaaaaacaaaffff4555555555555555555555555ffffffffffffffffffffffffffffffffffffffffffffffff45555555555555555555b6666666666ffffffffffffffffffaaa8666666cceffffff.
-        555eeccaaacfaccee5555555555555555555555555555555555555555555555555544555555555555555555555545555555555555555555c6666666666fffffffffffffffccaaaac66666acffffffff.
-        bbbbbbefffffffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbeebbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbc6666666666fffffffffffffffaaaaaac6666aacffffffff.
-        555555555555555555555555555555555555555555555555555555555555555555445555555555555554555555555445555555555555555f666666666fffffffffffffffcaaaaaacaaaaaacffffffff.
-        555555555555555555555555555555555555555555555555554555555555555555455555555555555554555555555554455555555555555ffffffffffffffffffffffffffaaaaaacaaaaaacffffffff.
-        5555555555555555555555555555555555555555555555554d555555555555555455555555555555555445555555555554d555555555555555555555555555555555555554eccafcaaaccee55555555.
-        555555555555555555555555555555555555555555555554555555555555555554555555555555555555455555555555554455555555555555555555555555555555555555554eeffee555555555555.
-        5555555555555555555555555555555555555555555555455555555555555555455555555555555555554d5555555555555555555555555555555555555555555555555555555555555555555555555.
-        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb4bbbbbbbbbbbbbbbbbbebbbbbbbbbbbbbbbbbbbeebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        ................................................................................................................................................................
-        `)
-    enemigo2(true)
-    main_character.setPosition(141, 100)
 }
 function menuseleccionpartida (booleano: boolean) {
     destruirescenario(true)
@@ -615,9 +482,12 @@ function menuseleccionpartida (booleano: boolean) {
         `, SpriteKind.manoSeleccion)
     controller.moveSprite(mano_seleccion, 100, 100)
 }
+function animacionjugador (booleano: boolean) {
+	
+}
+let botonseleccionjuego: Sprite = null
 let mano_seleccion: Sprite = null
 let botonseleccionjuego3: Sprite = null
 let botonseleccionjuego2: Sprite = null
-let botonseleccionjuego: Sprite = null
 let botonbannerinicio: Sprite = null
 crear_menu_inicial(true)
